@@ -1,6 +1,8 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import AnimatedLogo from "./AnimatedLogo";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,18 +31,27 @@ const Header = () => {
     >
       <div className="container flex items-center justify-between">
         {/* Логотип */}
-        <a href="/" className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2">
           <AnimatedLogo />
           <span className={`font-bold text-xl transition-colors duration-300 ${
             scrolled ? "text-primary" : "text-white"
           }`}>
             БыстроЕда
           </span>
-        </a>
+        </Link>
 
         {/* Десктопное меню */}
         <nav className="hidden md:flex items-center space-x-6">
-          {["Меню", "О нас", "Доставка", "Контакты"].map((item) => (
+          <Link
+            to="/menu"
+            className={`hover:text-primary transition-colors relative group ${
+              scrolled ? "text-foreground" : "text-white"
+            }`}
+          >
+            Еда
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+          {["О нас", "Доставка", "Контакты"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -96,7 +107,14 @@ const Header = () => {
           }`}
         >
           <div className="container py-4 flex flex-col space-y-4">
-            {["Меню", "О нас", "Доставка", "Контакты"].map((item) => (
+            <Link
+              to="/menu"
+              className="text-foreground hover:text-primary transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Еда
+            </Link>
+            {["О нас", "Доставка", "Контакты"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
