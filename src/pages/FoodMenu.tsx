@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FoodCard from "@/components/FoodCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { motion } from "framer-motion";
 
 // Типы для блюд
 type FoodItem = {
@@ -117,17 +116,16 @@ const FoodMenu = () => {
       <Header />
       
       <main className="flex-grow container py-8">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12 pt-16"
+        <div
+          className={`text-center mb-12 pt-16 transition-all duration-500 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'
+          }`}
         >
           <h1 className="text-4xl font-bold mb-4">Наши блюда</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Наслаждайтесь разнообразием вкусных домашних блюд, приготовленных с любовью из свежих продуктов
           </p>
-        </motion.div>
+        </div>
         
         <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
           <div className="flex justify-center mb-8">
@@ -148,11 +146,10 @@ const FoodMenu = () => {
           </TabsContent>
         </Tabs>
         
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 bg-muted rounded-xl p-8"
+        <div
+          className={`mt-16 bg-muted rounded-xl p-8 transition-all duration-500 delay-300 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
         >
           <h2 className="text-2xl font-bold mb-4">Информация о питании</h2>
           <p className="mb-6">
@@ -178,7 +175,7 @@ const FoodMenu = () => {
               <p className="text-sm text-muted-foreground">Не заставим вас долго ждать</p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </main>
       
       <Footer />
