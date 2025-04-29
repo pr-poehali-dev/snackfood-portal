@@ -1,8 +1,10 @@
+
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MenuSection from "@/components/MenuSection";
 import Hero from "@/components/Hero";
+import SidebarMenu from "@/components/SidebarMenu";
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -92,42 +94,103 @@ const Index = () => {
       }`}
     >
       <Header />
-      <Hero />
-      
-      <main className="flex-grow container py-8">
-        <div id="меню" className="pt-8 scroll-mt-20">
-          <h1 className="text-3xl font-bold text-center mb-12 animate-fade-in" style={{ animationDelay: '300ms' }}>
-            Наше меню
-          </h1>
-          <MenuSection title="Закуски" items={foodItems} />
-          <MenuSection title="Напитки" items={drinkItems} />
-        </div>
-        
-        <div id="о-нас" className="py-16 scroll-mt-20">
-          <div className="bg-gray-50 rounded-lg p-8 shadow-inner">
-            <h2 className="text-2xl font-bold mb-6 opacity-0 animate-fade-in" style={{ animationFillMode: 'forwards', animationDelay: '200ms' }}>
-              О нашей закусочной
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="opacity-0 animate-fade-in" style={{ animationFillMode: 'forwards', animationDelay: '400ms' }}>
-                <p className="mb-4">
-                  Наша закусочная была основана в 2015 году с целью предоставить быстрое, качественное и доступное питание для всех, кто ценит своё время.
-                </p>
-                <p>
-                  Мы используем только свежие ингредиенты и уникальные рецепты, чтобы каждый наш гость мог насладиться вкусом настоящей, приготовленной с любовью еды.
-                </p>
-              </div>
-              <div className="opacity-0 animate-fade-in" style={{ animationFillMode: 'forwards', animationDelay: '600ms' }}>
-                <img 
-                  src="https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                  alt="Команда закусочной" 
-                  className="rounded-lg shadow-md w-full h-60 object-cover hover:shadow-xl transition-shadow duration-300" 
-                />
+      <div className="flex flex-1">
+        <SidebarMenu />
+        <div className="flex-1">
+          <Hero />
+          
+          <main className="flex-grow container py-8">
+            <div id="меню" className="pt-8 scroll-mt-20">
+              <h1 className="text-3xl font-bold text-center mb-12 animate-fade-in" style={{ animationDelay: '300ms' }}>
+                Наше меню
+              </h1>
+              <MenuSection title="Закуски" items={foodItems} />
+              <MenuSection title="Напитки" items={drinkItems} />
+            </div>
+            
+            <div id="о-нас" className="py-16 scroll-mt-20">
+              <div className="bg-gray-50 rounded-lg p-8 shadow-inner">
+                <h2 className="text-2xl font-bold mb-6 opacity-0 animate-fade-in" style={{ animationFillMode: 'forwards', animationDelay: '200ms' }}>
+                  О нашей закусочной
+                </h2>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="opacity-0 animate-fade-in" style={{ animationFillMode: 'forwards', animationDelay: '400ms' }}>
+                    <p className="mb-4">
+                      Наша закусочная была основана в 2015 году с целью предоставить быстрое, качественное и доступное питание для всех, кто ценит своё время.
+                    </p>
+                    <p>
+                      Мы используем только свежие ингредиенты и уникальные рецепты, чтобы каждый наш гость мог насладиться вкусом настоящей, приготовленной с любовью еды.
+                    </p>
+                  </div>
+                  <div className="opacity-0 animate-fade-in" style={{ animationFillMode: 'forwards', animationDelay: '600ms' }}>
+                    <img 
+                      src="https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                      alt="Команда закусочной" 
+                      className="rounded-lg shadow-md w-full h-60 object-cover hover:shadow-xl transition-shadow duration-300" 
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+            
+            <div id="карта" className="py-16 scroll-mt-20">
+              <div className="bg-gray-50 rounded-lg p-8 shadow-inner">
+                <h2 className="text-2xl font-bold mb-6 opacity-0 animate-fade-in" style={{ animationFillMode: 'forwards', animationDelay: '200ms' }}>
+                  Где нас найти
+                </h2>
+                <div className="h-60 rounded-lg overflow-hidden shadow-md opacity-0 animate-fade-in" style={{ animationFillMode: 'forwards', animationDelay: '400ms' }}>
+                  {/* Здесь может быть карта, заменяем на изображение */}
+                  <img 
+                    src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                    alt="Карта расположения" 
+                    className="w-full h-full object-cover" 
+                  />
+                </div>
+              </div>
+            </div>
+            
+            <div id="контакты" className="py-16 scroll-mt-20">
+              <div className="bg-gray-50 rounded-lg p-8 shadow-inner">
+                <h2 className="text-2xl font-bold mb-6 opacity-0 animate-fade-in" style={{ animationFillMode: 'forwards', animationDelay: '200ms' }}>
+                  Контакты
+                </h2>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="opacity-0 animate-fade-in" style={{ animationFillMode: 'forwards', animationDelay: '400ms' }}>
+                    <p className="mb-2"><strong>Адрес:</strong> ул. Вкусная, д. 15</p>
+                    <p className="mb-2"><strong>Телефон:</strong> +7 (123) 456-78-90</p>
+                    <p className="mb-2"><strong>Email:</strong> info@bistroda.ru</p>
+                    <p><strong>Часы работы:</strong> 10:00 - 22:00, без выходных</p>
+                  </div>
+                  <div className="opacity-0 animate-fade-in" style={{ animationFillMode: 'forwards', animationDelay: '600ms' }}>
+                    <form className="space-y-4">
+                      <input 
+                        type="text" 
+                        placeholder="Ваше имя" 
+                        className="w-full p-2 border rounded-md" 
+                      />
+                      <input 
+                        type="email" 
+                        placeholder="Ваш email" 
+                        className="w-full p-2 border rounded-md" 
+                      />
+                      <textarea 
+                        placeholder="Сообщение" 
+                        className="w-full p-2 border rounded-md h-24" 
+                      ></textarea>
+                      <button 
+                        type="button" 
+                        className="bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 transition-colors"
+                      >
+                        Отправить
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
         </div>
-      </main>
+      </div>
       
       <Footer />
       
