@@ -9,7 +9,9 @@ import {
   Pizza, 
   Phone, 
   Info, 
-  Map
+  Map,
+  Image,
+  Candy
 } from 'lucide-react';
 
 interface MenuItem {
@@ -84,6 +86,19 @@ const SidebarMenu = () => {
         { title: 'Лимонад', path: '/menu#limonad' },
         { title: 'Вода', path: '/menu#voda' }
       ]
+    },
+    { 
+      title: 'Сладости', 
+      path: '/sweets', 
+      icon: <Candy className="w-5 h-5" />,
+      subItems: [
+        { title: 'Шоколад', path: '/sweets#chocolate' }
+      ]
+    },
+    { 
+      title: 'Галерея', 
+      path: '/gallery', 
+      icon: <Image className="w-5 h-5" /> 
     },
     { 
       title: 'О нас', 
